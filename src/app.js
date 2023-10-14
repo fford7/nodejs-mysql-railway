@@ -4,8 +4,11 @@ import {PORT} from "./config.js"
 const app = express();
 
 app.get('/', async (req, res) => {
-    const [rows] = await pool.query('SELECT * FROM users')
-    res.json(rows)
+    const [result] = await pool.query(`SELECT "Hello World" as RESULT`);
+   console.log(result); 
+   res.json(result[0])
+    /* const [rows] = await pool.query('SELECT * FROM users')
+    res.json(rows) */
 })
 
 app.get('/ping', async (req, res) => {
